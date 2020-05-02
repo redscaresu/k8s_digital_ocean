@@ -25,3 +25,15 @@ resource "digitalocean_kubernetes_cluster" "production" {
     node_count = 1
   }
 }
+
+output "kubeconfig" {
+  value = digitalocean_kubernetes_cluster.production.kube_config[0].token
+}
+
+output "host" {
+  value = digitalocean_kubernetes_cluster.production.endpoint
+}
+
+output "cluster_ca_certificate" {
+  value = base64decode(digitalocean_kubernetes_cluster.production.kube_config[0].cluster_ca_certificate)
+}
