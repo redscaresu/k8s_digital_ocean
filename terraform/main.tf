@@ -14,10 +14,9 @@ terraform {
     endpoint = "https://space4.ams3.digitaloceanspaces.com/"
     region = "us-west-1"
     key = "terraform.tfstate"
-    bucket = "terrform-state-production"
+    bucket = "terrform_state_production"
     skip_credentials_validation = true
     skip_metadata_api_check = true
-    profile=digitalocean
   }
 }
 
