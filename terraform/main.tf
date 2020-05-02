@@ -1,8 +1,24 @@
 variable "do_token" {}
+variable "spaces_access_id" {}
+variable "spaces_secret_key" {}
 
 
 provider "digitalocean" {
   token = var.do_token
+  spaces_access_id  = var.spaces_access_id
+  spaces_secret_key = var.spaces_secret_key
+}
+
+terraform {
+  backend "s3" {
+    endpoint = "https://space4.ams3.digitaloceanspaces.com/"
+    region = "us-west-1"
+    key = "terraform.tfstate"
+    bucket = "terrform-state-production"
+    skip_credentials_validation = true
+    skip_metadata_api_check = true
+    profile=digitalocean
+  }
 }
 
 provider "kubernetes" {
