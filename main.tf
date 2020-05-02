@@ -16,7 +16,7 @@ provider "kubernetes" {
 
 resource "digitalocean_kubernetes_cluster" "production" {
   name    = "production"
-  region  = "lon1"
+  region  = "ams3"
   version = "1.16.6-do.2"
 
   node_pool {
