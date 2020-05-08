@@ -32,7 +32,7 @@ provider "kubernetes" {
 resource "digitalocean_kubernetes_cluster" "production" {
   name    = "production"
   region  = "ams3"
-  version = "1.16.6-do.2"
+  version = "1.17.5-do.0"
 
   node_pool {
     name       = "worker-pool"
